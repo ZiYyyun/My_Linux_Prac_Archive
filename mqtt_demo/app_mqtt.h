@@ -1,6 +1,7 @@
 #if !defined(__APP_MQTT_H)
 #define __APP_MQTT_H
 
+
 #define ADDRESS "tcp://192.168.55.25:1883"
 #define CLIENTID "b253ba38-daf6-4b37-984f-5d8fdc6a1cfb"
 #define TOPIC_PULL "remote_to_gateway" // 订阅的主题
@@ -8,7 +9,6 @@
 #define QOS 1 // 至少一次
 #define TIMEOUT 10000L
 
-#include "stdio.h"
 #include "../paho.mqtt.c/src/MQTTClient.h"
 
 /**
