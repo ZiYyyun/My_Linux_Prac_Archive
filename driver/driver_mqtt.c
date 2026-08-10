@@ -28,4 +28,21 @@ int Driver_MQTT_MessageArrived(void *context, char *topicName, int topicLen, MQT
     return -1;
 }
 
+void Driver_MQTT_DeliveryComplete(void *context, MQTTClient_deliveryToken dt)
+{
+  printf("message send succ!");
+}
+
+void Driver_MQTT_Init(MqttReceiveCallback rcb)
+{
+  //创建客户端
+  res = MQTTClient_create(&client, MQTT);
+  //设置回调
+  MQTTClient_setCallbacks(MQTTClient handle, void *context, MQTTClient_connectionLost *cl, MQTTClient_messageArrived *ma, MQTTClient_deliveryComplete *dc);
+  //连接服务器
+  MQTTClient_connect(MQTTClient handle, MQTTClient_connectOptions *options);
+  //订阅topic
+  MQTTClient_subscribe(MQTTClient handle, const char *topic, int qos);                                              
+}
+
 #endif
